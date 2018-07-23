@@ -275,7 +275,6 @@ def test(epoch):
 for epoch in range(args.epochs):
 	train(epoch)
 	# test(epoch)
-
 	torch.save(ce1, log + 'content_encoder1.pt')
 	torch.save(ce2, log + 'content_encoder2.pt')
 	torch.save(se1, log + 'style_encoder1.pt')
@@ -285,4 +284,4 @@ for epoch in range(args.epochs):
 	torch.save(dis1, log + 'discriminator1.pt')
 	torch.save(dis2, log + 'discriminator2.pt')
 	print('Model saved in ', log)
-	writer.close()
+writer.close()
