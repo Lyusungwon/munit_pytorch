@@ -130,8 +130,8 @@ class CelebA(Dataset):
             self.attr = self.attr[self.test_idx:]
         self.pimage_name = np.array(self.image_name[self.attr == 1])
         self.nimage_name = np.array(self.image_name[self.attr == -1])
-        self.pimage_name = np.random.shuffle(self.pimage_name)
-        self.nimage_name = np.random.shuffle(self.nimage_name)
+        np.random.shuffle(self.pimage_name)
+        np.random.shuffle(self.nimage_name)
         print(len(self.pimage_name), len(self.nimage_name))
 
     def __len__(self):
