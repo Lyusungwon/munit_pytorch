@@ -141,12 +141,14 @@ class CelebA(Dataset):
         pimage = cv2.imread(pimg_name)
         pimage = pimage[:,:,::-1].transpose((2,0,1)).copy()
         pimage = torch.from_numpy(pimage).float().div(255.0)
+        pimage = pimage * 2 - 1
 
         nimg_name = os.path.join(self.img_dir,
                                 self.nimage_name[idx])
         nimage = cv2.imread(nimg_name)
         nimage = nimage[:,:,::-1].transpose((2,0,1)).copy()
         nimage = torch.from_numpy(nimage).float().div(255.0)
+        nimage = nimage * 2 - 1
         # if self.transform:
         #     pimage = self.transform(pimage)
         #     nimage = self.transform(nimage)

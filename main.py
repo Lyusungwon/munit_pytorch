@@ -16,8 +16,8 @@ parser = argparser.default_parser()
 parser.add_argument('--input-h', type=list, default=218, metavar='N')
 parser.add_argument('--input-w', type=list, default=178, metavar='N')
 parser.add_argument('--channel-size', type=list, default=64, metavar='N')
-parser.add_argument('--content-code-h', type=list, default=44, metavar='N')
-parser.add_argument('--content-code-w', type=list, default=54, metavar='N')
+parser.add_argument('--content-code-h', type=list, default=54, metavar='N')
+parser.add_argument('--content-code-w', type=list, default=44, metavar='N')
 parser.add_argument('--style-code-num', type=list, default=8, metavar='N')
 parser.add_argument('--lx', type=list, default=1, metavar='N')
 parser.add_argument('--lc', type=list, default=1, metavar='N')
@@ -176,6 +176,7 @@ def train(epoch):
 								  recon_data2[:n],
 								  output_data12[:n],
 								  output_data21[:n]])
+			comparison = (comparison + 1)/2
 			writer.add_image('Train image', comparison, epoch * batch_size + batch_idx)
 
 	print('====> Epoch: {} Average loss: {:.4f}\tTime: {:.4f}'.format(
